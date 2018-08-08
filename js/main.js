@@ -3,7 +3,7 @@ var shop = prompt("Название вашеог магазина");
 var shopGoods=[], open, employers, mainList;
 employers={};
 
-mainList = {'budget': budget, "shop":shop, "shopGoods":shopGoods, "employers":employers, open:true};
+mainList = {'budget': budget, "shop":shop, "shopGoods":shopGoods, "employers":employers={}, open:true};
 // ввод типов товара
 shopGoods[0] = prompt("Какой тип товаров будем продавать?");
 shopGoods[1] = prompt("Какой тип товаров будем продавать?");

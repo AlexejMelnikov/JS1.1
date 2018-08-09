@@ -14,8 +14,8 @@ arr = [    "3476538963",
 		   "5456344376",
 		   "8456345567",
 		   "5434678904"];
-for (let i =0; i < Week.length; i++) {
-	if (Week[i][1] == "у" || Week[i][2] == "с") {
+Week.forEach( function(element, i) {
+	if (i == 5 || i == 6) {
 
 			document.write("<b>"+Week[i] + "</b>" + "<br>");
 
@@ -29,7 +29,7 @@ for (let i =0; i < Week.length; i++) {
 
 						}
 	
-};
+});
 for(let i =0; i < arr.length; i++) {
 	if( arr[i][0] == "3" || arr[i][0] == "7") {
 		

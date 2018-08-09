@@ -1,6 +1,6 @@
-var budget = prompt("Ваш бюджет на месяц");
-var shop = prompt("Название вашего магазина");
-var shopGoods=[], 
+let budget = + prompt("Ваш бюджет на месяц");
+let shop = prompt("Название вашего магазина");
+let shopGoods=[], 
 	open, 
 	employers={}, 
 	mainList;
@@ -17,4 +17,4 @@ shopGoods[1] = prompt("Какой тип товаров будем продав�
 shopGoods[2] = prompt("Какой тип товаров будем продавать?");
 alert("Ваш бюджет на день: " + budget/30);
 
-// console.log(typeof(mainList.employers));
+console.log(typeof(mainList.budget));

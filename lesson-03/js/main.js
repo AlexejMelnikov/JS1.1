@@ -59,7 +59,7 @@ function chooseGoods(){
 	let a = prompt("Какой тип товаров будем продавать?");
 	
 
-	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a != '' && a.length > 2 ) {
+	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a != '' && a.length < 50 ) {
 		// console.log("Всё верно!");
 		mainList.shopGoods.push(a);
 	} else {

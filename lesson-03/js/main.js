@@ -32,9 +32,9 @@ function calcBudget(money) {
 	alert("Ваш бюджет на день: " + mainList.budget);
 }
 // дисконнтная система
-function discSystem(obj, price) { 
+function discSystem() { 
 	
-	return (obj.discount) ? price*0.8 : price ;
+	return (mainList.discount) ? price*0.8 : price ;
 }
 hiringEmployers();
 function hiringEmployers() {
@@ -68,7 +68,7 @@ function chooseGoods(){
 	}
 }
 chooseGoods();
-// console.log(mainList.shopGoods);
+// conso le.log(mainList.shopGoods);
 // workTime(18);
 function workTime(time) {
    if (time<0) {

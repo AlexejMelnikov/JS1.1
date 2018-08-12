@@ -15,7 +15,7 @@ function start() {
 
    time = 19
 }
-start();
+// start();
 
 
  let mainList = {
@@ -26,21 +26,28 @@ start();
 		open: true,
 		discount: false
 };
-calcBudget(money);
+// calcBudget(money);
 function calcBudget(money) {
 	mainList.budget = money/30;
 	alert("Ваш бюджет на день: " + mainList.budget);
 }
 // дисконнтная система
-function discSystem(price, discount) { 
+function discSystem(obj, price) { 
 	
-	return (discount) ? price*0.8 : price ;
+	return (obj.discount) ? price*0.8 : price ;
 }
 hiringEmployers();
 function hiringEmployers() {
-	for(let i =1; i < 5; i++) {
-		 mainList.employers.name.push( i + " - "+ prompt("Введите имя сотрудника"));
-	}
+		let a
+		// let a = prompt("Введите имя сотрудника");
+	 	for(let i = 0; i < 4; i++) {
+	 		a = prompt("Введите имя сотрудника");
+	 	   if(typeof(a) === 'string' && typeof(a) !== null && a != '' && a.length < 50 ) {
+		 	mainList.employers.name.push( i + " - "+ a );
+		} else {
+			i--;
+			}
+		}
 }
 // типы циклов
 // for (let i = 0; i < 5; i++)
@@ -51,19 +58,16 @@ function chooseGoods(){
 	let a = prompt("Какой тип товаров будем продавать?");
 	
 
-	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a != '' && a.length < 50 ) {
-
-		console.log("Всё верно!");
+	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a != '' && a.length > 2 ) {
+		// console.log("Всё верно!");
 		mainList.shopGoods[i] = a;
 	} else {
-
+			i--;
+		}
 	}
-	i++
 }
-}
-
 chooseGoods();
-workTime(18);
+// workTime(18);
 function workTime(time) {
    if (time<0) {
 	
@@ -74,7 +78,8 @@ function workTime(time) {
      	console.log("Уже слишком поздно");
     	} else {
      	console.log("В сутках только 24 часа"); 	 
-    	};
+    	}
 }
- console.log(discSystem(10));
+
+console.log(discSystem(mainList, 100));
 

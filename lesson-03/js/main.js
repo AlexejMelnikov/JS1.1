@@ -49,6 +49,7 @@ function hiringEmployers() {
 			}
 		}
 }
+// console.log(mainList.employers.name);
 // типы циклов
 // for (let i = 0; i < 5; i++)
 // while(i < 5)
@@ -60,13 +61,14 @@ function chooseGoods(){
 
 	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a != '' && a.length > 2 ) {
 		// console.log("Всё верно!");
-		mainList.shopGoods[i] = a;
+		mainList.shopGoods.push(a);
 	} else {
 			i--;
 		}
 	}
 }
 chooseGoods();
+// console.log(mainList.shopGoods);
 // workTime(18);
 function workTime(time) {
    if (time<0) {

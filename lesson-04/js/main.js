@@ -83,7 +83,6 @@ function start() {
 				});
 				
 			} 
-				mainList.shopItems.sort();
 			}
 
 

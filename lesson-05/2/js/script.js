@@ -12,7 +12,7 @@ let valueIsOpen = document.getElementsByClassName('isopen-value');
 console.log(valueIsOpen);
 
 let inputs =document.getElementsByClassName('goods-item')[0];
-console.log(inputs)
+console.log(inputs);
 
 let tag =document.getElementsByTagName('button');
 console.log(tag);

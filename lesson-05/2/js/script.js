@@ -23,5 +23,5 @@ console.log(budget);
 let time = document.querySelector('.time-value');
 console.log(time);
 
-let employers = document.querySelectorAll('.hire-employers-item');
+let employers = document.querySelectorAll('.main-functions > button');
 console.log(employers);

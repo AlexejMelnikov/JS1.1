@@ -1,17 +1,17 @@
-let btn = document.querySelector("#open-btn");
+let btn = document.getElementById("open-btn");
 console.log(btn);
 
-let value = [];
-	value[0] = document.querySelectorAll('.name-value');
-	value[1] = document.querySelectorAll('.budget-value');
-    value[2] = document.querySelectorAll('.goods-value');
-	value[3] = document.querySelectorAll('.items-value');
-    value[4] = document.querySelectorAll('.employers-value');
-	value[5] = document.querySelectorAll('.discount-value');
-    value[6] = document.querySelectorAll('.isopen-value');
-console.log(value);
 
-let inputs =document.querySelectorAll('.goods-item');
+let	valueName = document.getElementsByClassName('name-value');
+let	valueBudget = document.getElementsByClassName('budget-value');
+let valueGoods = document.getElementsByClassName('goods-value');
+let	valueItems = document.getElementsByClassName('items-value');
+let valueEmployers = document.getElementsByClassName('employers-value');
+let	valueDiscount = document.getElementsByClassName('discount-value');
+let valueIsOpen = document.getElementsByClassName('isopen-value');
+console.log(valueIsOpen);
+
+let inputs =document.getElementsByClassName('goods-item')[0];
 console.log(inputs)
 
 let tag =document.getElementsByTagName('button');

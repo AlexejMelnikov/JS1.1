@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", function() {
 	let tab = document.getElementsByClassName('info-header-tab'),
 		tabContent = document.getElementsByClassName('info-tabcontent'),
@@ -34,7 +35,7 @@ function showTabContent(b) {
 	})
 	// timer
 
-	let deadLine = '2018-08-20';
+	let deadLine = '2018-08-25';
 	
 	
 	function geTimeRemainig(endTime) {
@@ -84,16 +85,26 @@ function checkTime(a) {
 
 	let more = document.querySelector('.more'),
 	    overlay = document.querySelector('.overlay'),
-	    close = document.querySelector('.popup-close');
+	    close = document.querySelector('.popup-close'),
+	    btnDesc = document.querySelectorAll('.description-btn');
+	    console.log(btnDesc);
 
 	    more.addEventListener('click', function() {
 	    	this.classList.add('more-splash');
 	    	overlay.style.display = 'block';
 	    	document.body.style.overflow = 'hidden';
 	    });
+	    for(let i = 0; i < btnDesc.length; i++) {
+	    btnDesc[i].addEventListener('click', function() {
+	    	this.classList.add('more-splash');
+	    	overlay.style.display = 'block';
+	    	document.body.style.overflow = 'hidden';
+	      });
+	}
 	   close.addEventListener('click', function() {
 	   		overlay.style.display = 'none';
 	   		more.classList.remove('more-splash');
 	   		document.body.style.overflow = '';
-	   })
+	   });
 });
+

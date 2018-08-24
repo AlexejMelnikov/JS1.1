@@ -93,13 +93,14 @@ let checkTime = (a) => {
 	    console.log(btnDesc);
 
 	    more.addEventListener('click', () => {
-	    	this.classList.add('more-splash');
+	    	console.log(more);
+	    	more.classList.add('more-splash');
 	    	overlay.style.display = 'block';
 	    	document.body.style.overflow = 'hidden';
 	    });
 	    for(let i = 0; i < btnDesc.length; i++) {
 	    btnDesc[i].addEventListener('click', () => {
-	    	this.classList.add('more-splash');
+	    	btnDesc[i].classList.add('more-splash');
 	    	overlay.style.display = 'block';
 	    	document.body.style.overflow = 'hidden';
 	      });

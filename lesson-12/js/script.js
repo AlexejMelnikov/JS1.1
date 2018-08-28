@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", () => {
 	let tab = document.getElementsByClassName('info-header-tab'),
 		tabContent = document.getElementsByClassName('info-tabcontent'),
@@ -111,9 +112,9 @@ let checkTime = (a) => {
 	   });
 	   // form
 	let message = new Object();
-	message.loading = '<img src = "gif/ajax-loader.gif"/>'	;
+	message.loading = '<img src ="gif/ajax-loader.gif">';	
 	message.succes = "Спасибо! Скоро с вами свяжемся";
-	message.failure = "<img src = 'gif/ajax-loader.gif'/>";
+	message.failure = "Что-то пошло не так...";
 // ajax запрос всплывающего меню
 	let form =document.getElementsByClassName('main-form')[0],
 		input = form.getElementsByTagName('input'),
@@ -135,20 +136,22 @@ let checkTime = (a) => {
 			 let formData = new  FormData(form);
 			 // отправка запроса
 			 request.send(formData);
+			 let image = document.createElement('img');
+			 statusMessage.appendChild(image);
+			 
 
 			 request.onreadystatechange = function() {
 			 	if(request.readyState < 4) {
-
-			 		statusMessage.innerHTML = message.loading;
-
+			 		image.src = "gif/ajax-loader.svg";
+			 				
 			 	} else if(request.readyState === 4){
-			 		console.log(request.readyState+"  "+request.status);
+			 		// console.log(request.readyState+"  "+request.status);
 			 			if(request.status === 200 && request.status < 300) {
-			 					statusMessage.innerHTML = message.succes;
-			 					// добавляем данные
+			 					image.src = "gif/success1.png";
+											 								 					
 			 					} else {
 
-			 						statusMessage.appendChild(message.failure);
+			 						image.src = "gif/failure.jpg";
 			 			}
 			 		}
 			 	}
@@ -183,15 +186,18 @@ let contact_form =document.getElementById('form'),
 			 request.onreadystatechange = function() {
 			 	if(request.readyState < 4) {
 
-			 		statusMessages.innerHTML = message.loading;
+			 		// statusMessages.innerHTML = message.loading;
+			 		image.src = "gif/ajax-loader.svg";
 
 			 	} else if(request.readyState === 4){
 			 			if(request.status === 200 && request.status < 300) {
 
-			 					statusMessages.innerHTML = message.succes;
+			 					// statusMessages.innerHTML = message.succes;
+			 					image.src = "gif/success1.png";
 			 					// добавляем данные
 			 					} else {
-			 						statusMessages.innerHTML = message.failure;
+			 						// statusMessages.innerHTML = message.failure;
+			 						image.src = "gif/failure.jpg";
 			 			}
 			 		}
 			 	}
@@ -253,7 +259,7 @@ smoothScroll(id);
 // }
 // 	ValidPhone();  
 	});
-		// slider
+	// slider
 		 let slideIndex = 1,
 		 		slides = document.getElementsByClassName('slider-item'),
 		 		prev = document.querySelector('.prev'),
@@ -311,18 +317,54 @@ smoothScroll(id);
 
 
 		   totalValue.innerHTML = 0;
-		   persons.addEventListener('change', function() {
+		   persons.addEventListener('change', function(event) {
+		   		this.value = this.value.replace(/[^\d,]/g, '');
+
 		   		personsSumm =+ this.value;
+		   				   
 		   		total = (daysSum + personsSumm)* 4000;
-		   		if(restDays.value == "") {
-		   			totalValue.innerHTML = 0;
+		   		if(persons.value == "" || restDays.value == "" ) {
+		   		 			totalValue.innerHTML = 0;
+		   		} else {
+		   			totalValue.innerHTML = total;
 		   		}
-		   })
+		   		if (event.keyCode == 69 || event.keyCode == 107)  {
+		   			return false;
+		   		}
+		   		console.log(event.keyCode);
+
+		});
 		    restDays.addEventListener('change', function() {
-		   		daysSum =+ this.value;
-		   		total = (daysSum + personsSumm)* 4000;
-		   		if(persons.value == "") {
+		    	this.value = this.value.replace(/[^\d,]/g, '');
+		    	this.value = parseInt(this.value, 10);
+		    	daysSum =+ this.value;
+		    	total = (daysSum + personsSumm)* 4000;
+		   		if(persons.value == "" || restDays.value == "") {
 		   			totalValue.innerHTML = 0;
+		   		} else {
+		   		totalValue.innerHTML = total;
 		   		}
-		   })
+		   		if (event.keyCode == 69 || event.keyCode == 107)  {
+		   			return false;
+		   		}
+
+		   });
+		    place.addEventListener('change', function() {
+		       		if(persons.value == "" && restDays.value == "") {
+		    			totalValue.innerHTML = 0;
+		    		} else {
+		    			let a = total;
+		    			totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+		    		}
+		    
+		    });
+
+
 });
+
+
+	
+
+		
+
+

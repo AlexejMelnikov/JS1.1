@@ -281,10 +281,10 @@ smoothScroll(id);
 		 		};
 		 		for (let i=0; i < dots.length; i++) {
 		 			dots[i].classList.remove('dot-active');
-		 			console.log(dots[i]);
 		 			};
+		 			console.log(dotsWrap.length);
 		 			slides[slideIndex -1].style.display = 'block';
-		 			dots[slideIndex -1].classList.add('dot-activ');
+		 			dots[slideIndex -1].classList.add('dot-active');
 		 			
 		 }
 		 function plusSlides(n) {
@@ -303,6 +303,7 @@ smoothScroll(id);
 		  	for(let k = 0; k < dots.length; k++) {
 		  		if(event.target.classList.contains('dot') && event.target == dots[k -1]) {
 		  			currentSlie(k); 
+		  			console.log(dotsWrap.length)
 		  		}
 		  	}
 		  });
@@ -317,46 +318,52 @@ smoothScroll(id);
 
 
 		   totalValue.innerHTML = 0;
-		   persons.addEventListener('change', function(event) {
-		   		this.value = this.value.replace(/[^\d,]/g, '');
-
-		   		personsSumm =+ this.value;
-		   				   
+		   persons.addEventListener('input', function() {
+		   		let inp = parseInt(persons.value, 10);
+		   		personsSumm =+ inp;
+		   		let regExp = new RegExp(/\d+/g);
+		    		
+		    		// console.log((restDays.value).match(regExp));
+		    		if((inp+"").indexOf('e') || !!((persons.value+"").match(regExp))) {
+		    			totalValue.innerHTML = 0;	
+		   }
 		   		total = (daysSum + personsSumm)* 4000;
-		   		if(persons.value == "" || restDays.value == "" ) {
-		   		 			totalValue.innerHTML = 0;
+		   		if(persons.value == "" || restDays.value == "") {
+		   			totalValue.innerHTML = 0;
 		   		} else {
 		   			totalValue.innerHTML = total;
 		   		}
-		   		if (event.keyCode == 69 || event.keyCode == 107)  {
-		   			return false;
-		   		}
-		   		console.log(event.keyCode);
-
+		   		
+		
 		});
-		    restDays.addEventListener('change', function() {
-		    	this.value = this.value.replace(/[^\d,]/g, '');
-		    	this.value = parseInt(this.value, 10);
-		    	daysSum =+ this.value;
-		    	total = (daysSum + personsSumm)* 4000;
+		    restDays.addEventListener('input', function() {
+		    	(restDays.value == NaN)? total = 0:total = total;
+		    	let regExp = new RegExp(/\d+/g),
+		    		inp = parseInt(restDays.value, 10);
+		    		if((inp+"").indexOf('e') || !!((restDays.value+"").match(regExp))) {
+		    			totalValue.innerHTML = 0;	
+		    			// console.log(restDays.value);
+		    		}
+		    		console.log((restDays.value+"").match(regExp))
+		    	daysSum =+ inp; //this.value
+		   		total = (daysSum + personsSumm)* 4000;
 		   		if(persons.value == "" || restDays.value == "") {
 		   			totalValue.innerHTML = 0;
 		   		} else {
 		   		totalValue.innerHTML = total;
 		   		}
-		   		if (event.keyCode == 69 || event.keyCode == 107)  {
-		   			return false;
-		   		}
 
 		   });
 		    place.addEventListener('change', function() {
-		       		if(persons.value == "" && restDays.value == "") {
+		    	(place.value == NaN)? total = 0:total = total;
+		    		if(persons.value == "" || restDays.value == "") {
 		    			totalValue.innerHTML = 0;
 		    		} else {
 		    			let a = total;
 		    			totalValue.innerHTML = a * this.options[this.selectedIndex].value;
 		    		}
-		    
+		    		let regExp = new RegExp("/\+|\d{1,}|\.|\,|\e|/",g);
+		    		console.log((restDays.value).match(regExp));
 		    });
 
 

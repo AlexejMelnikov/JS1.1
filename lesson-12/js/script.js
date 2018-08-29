@@ -282,7 +282,6 @@ smoothScroll(id);
 		 		for (let i=0; i < dots.length; i++) {
 		 			dots[i].classList.remove('dot-active');
 		 			};
-		 			console.log(dotsWrap.length);
 		 			slides[slideIndex -1].style.display = 'block';
 		 			dots[slideIndex -1].classList.add('dot-active');
 		 			
@@ -300,12 +299,11 @@ smoothScroll(id);
 		 	plusSlides(1);
 		 });
 		  dotsWrap.addEventListener('click', function(event) {
-		  	for(let k = 0; k < dots.length; k++) {
+		  	for(let k = 0; k < dots.length + 1; k++) {
 		  		if(event.target.classList.contains('dot') && event.target == dots[k -1]) {
 		  			currentSlie(k); 
-		  			console.log(dotsWrap.length)
-		  		}
-		  	}
+		  			}
+		  	console.log(dots[k]);				  	}
 		  });
 		  // calculator
 		  let persons = document.getElementsByClassName('counter-block-input')[0],

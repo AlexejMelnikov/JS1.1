@@ -26,26 +26,18 @@
 	});
 
 	
-// 	форма должна отправляться, $('.наша форма').submit(function() {--})
-// и далее используешь ajax в функции type, url, data, success
+
 		$('.modal').submit( function(event) {
 		event.preventDefault();
-		let div = '<div class="results"><div/>';
+		let div = "<div class='results'><div/>";
 		this.append(div);
 		$.ajax({
-
-		url: 'server.php?action=sample1',
-
-		  success: function(data) {
-		 		// console.log('norm'); 	
-    	$('.results').html(data);
+		url: 'server.php',
+		      success: function(data) {
+		      	console.log('norm');
+		  	  $('.results').html(data);
 
   				}
+		});
 	});
-
-		 
-
-});
-
-	
 });

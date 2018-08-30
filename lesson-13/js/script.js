@@ -1,26 +1,20 @@
  $(document).ready(function() {
-
-	$('.main_btn').on('click', function() {
-		$('.overlay').fadeToggle('slow'); 
+ 	function popupOverlay() {
+ 		$('.overlay').fadeToggle('slow'); 
 		$('.modal').animate({
 		opacity: 'toggle',
 		height: 'toggle'
 	})
+ 	};
+
+	$('.main_title, .main_btn').on('click', function() {
+		popupOverlay();
 	});
-	$('.main_btna').on('click', function() {
-		$('.overlay').fadeToggle('slow'); 
-		$('.modal').animate({
-		opacity: 'toggle',
-		height: 'toggle'
-	});
+	$('.main_title, .main_btna').on('click', function() {
+		popupOverlay();
 	});	
 	$("a[href='#sheldure']").on('click',function() {
-		// console.log('HI');
-		$('.overlay').fadeToggle('slow'); 
-		$('.modal').animate({
-		opacity: 'toggle',
-		height: 'toggle'
-	});	
+		popupOverlay();
 	});		
 	
 	$('.close').on('click', function() {
@@ -31,6 +25,16 @@
 		$('.overlay').fadeToggle('slow'); 
 	});
 
-	console.log($("a[href^='http://w3pro.ru']"));
 	
+
+		$('.modal').submit( function(event) {
+		event.preventDefault();
+		let div = "<div class='results'><div/>";
+		$.ajax({
+		url: 'server.php',
+		      success: function(data) {
+		      $('.results').html(data);
+  				}
+		});
+	});
 });

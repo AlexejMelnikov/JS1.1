@@ -1,26 +1,20 @@
  $(document).ready(function() {
-
-	$('.main_btn').on('click', function() {
-		$('.overlay').fadeToggle('slow'); 
+ 	function popupOverlay() {
+ 		$('.overlay').fadeToggle('slow'); 
 		$('.modal').animate({
 		opacity: 'toggle',
 		height: 'toggle'
 	})
+ 	};
+
+	$('.main_title, .main_btn').on('click', function() {
+		popupOverlay();
 	});
-	$('.main_btna').on('click', function() {
-		$('.overlay').fadeToggle('slow'); 
-		$('.modal').animate({
-		opacity: 'toggle',
-		height: 'toggle'
-	});
+	$('.main_title, .main_btna').on('click', function() {
+		popupOverlay();
 	});	
 	$("a[href='#sheldure']").on('click',function() {
-		// console.log('HI');
-		$('.overlay').fadeToggle('slow'); 
-		$('.modal').animate({
-		opacity: 'toggle',
-		height: 'toggle'
-	});	
+		popupOverlay();
 	});		
 	
 	$('.close').on('click', function() {
@@ -32,16 +26,12 @@
 	});
 
 	
-	
-	let btn = $('button').eq(1);
-	btn.on('click', function(event) {
+// 	форма должна отправляться, $('.наша форма').submit(function() {--})
+// и далее используешь ajax в функции type, url, data, success
+		$('.modal').submit( function(event) {
 		event.preventDefault();
-		// console.log('NORM');
 		let div = '<div class="results"><div/>';
-		
-		console.log(div);
-
-		$('.modal').append(div);
+		this.append(div);
 		$.ajax({
 
 		url: 'server.php?action=sample1',

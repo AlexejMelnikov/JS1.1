@@ -56,6 +56,9 @@ function calc() {
 		    		let regExp = new RegExp("/\+|\d{1,}|\.|\,|\e|/",g);
 		    		console.log((restDays.value).match(regExp));
 		    });
+		    if(persons.value == "" || restDays.value == "") {
+		    			totalValue.innerHTML = 0;
+		    		}
 
 }
 module.exports = calc;

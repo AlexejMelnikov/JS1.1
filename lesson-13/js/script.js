@@ -7,15 +7,9 @@
 	})
  	};
 
-	$('.main_title, .main_btn').on('click', function() {
-		popupOverlay();
+	$('.main_btna, .main_btn, a[href="#sheldure"]').on('click', function() {
+	popupOverlay();
 	});
-	$('.main_title, .main_btna').on('click', function() {
-		popupOverlay();
-	});	
-	$("a[href='#sheldure']").on('click',function() {
-		popupOverlay();
-	});		
 	
 	$('.close').on('click', function() {
 		$('.modal').animate({
@@ -24,8 +18,6 @@
 	});	
 		$('.overlay').fadeToggle('slow'); 
 	});
-
-	
 
 		$('.modal').submit( function(event) {
 		event.preventDefault();

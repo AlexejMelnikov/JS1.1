@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<div id="mocha"></div>	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.0.5/mocha.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.0.5/mocha.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.min.js"></script>
+
+	<script>
+		mocha.setup('bdd');
+
+		let assert = chai.assert;
+	</script>
+	<script src=js/test.js></script>
+	<!-- <script src="js/bundle/boundle.js"></script> -->
+	<script>
+		mocha.run();
+	</script>
+</body>
+</html>

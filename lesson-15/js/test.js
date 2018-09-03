@@ -52,6 +52,9 @@ describe('each', function() {
 	it('length of Array == 5', function() {
 	 	assert.lengthOf(each(arr, myFunc),5);	
 	})
+	it('Function Each return type Array too', function() {
+	 	assert.typeOf(each(arr, myFunc), 'Array');	
+	})
 })
-console.log(each(arr, myFunc));
- // 
+console.log(typeof(each(arr, myFunc)));
+ 
